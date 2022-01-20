@@ -13,7 +13,7 @@ function EditProductForm({id}) {    //รับidมา
     const [product, setProduct] = useState(initProductState);
     const [submitted, setSubmitted] = useState(false);
     useEffect(() => {
-        axios.get("http://localhost:5000/api/products/" +id).then((response)=>{
+        axios.get("https://product-api-010.herokuapp.com/api/products/" +id).then((response)=>{
             setProduct(response.data)
         });
     },[id])
@@ -36,7 +36,7 @@ function EditProductForm({id}) {    //รับidมา
         };
         // เรียกใช้ api
         axios
-            .put("http://localhost:5000/api/products/"+ product._id, param) //ส่งพาร์ท และส่งพารามิเตอร์ไปด้วย
+            .put("https://product-api-010.herokuapp.com/api/products/"+ product._id, param) //ส่งพาร์ท และส่งพารามิเตอร์ไปด้วย
             .then((response) => {
                 console.log(response.data);
                 setProduct({ ...product, param });
